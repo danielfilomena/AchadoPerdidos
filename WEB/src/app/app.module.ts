@@ -2,6 +2,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 
 import { NgxMaskModule, IConfig } from 'ngx-mask';
+
 
 
 
@@ -34,7 +36,9 @@ import { NgxMaskModule, IConfig } from 'ngx-mask';
     BrowserAnimationsModule,
     MatInputModule,
     MatCardModule,
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
