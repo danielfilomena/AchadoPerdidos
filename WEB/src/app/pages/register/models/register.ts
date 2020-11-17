@@ -7,9 +7,6 @@ export class Register {
   pesUltNome: string;
   pesCpf: string;
   pesSenha: string;
-  pesConfSenha: string;
-  pesDtaCad: Date;
-  pesDtaAlt: Date;
   pesInativo: boolean;
   pesExcluido: boolean;
 

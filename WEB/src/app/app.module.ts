@@ -16,6 +16,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 
 import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -37,7 +38,8 @@ import { NgxMaskModule, IConfig } from 'ngx-mask';
     MatInputModule,
     MatCardModule,
     NgxMaskModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot()
 
   ],
   providers: [],

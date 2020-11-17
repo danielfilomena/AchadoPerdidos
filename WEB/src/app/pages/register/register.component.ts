@@ -1,10 +1,12 @@
+import { ToastrService } from 'ngx-toastr';
+
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { RegisterService } from './../../services/register.service';
 import { Register } from './models/register';
-
-import {MatFormFieldModule} from '@angular/material/form-field';
 import { PasswordValidator } from './passwordValidator';
-
 
 
 @Component({
@@ -15,9 +17,12 @@ import { PasswordValidator } from './passwordValidator';
 export class RegisterComponent implements OnInit {
 
   form: FormGroup;
-  pessoa: Register;
+  register: Register;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,
+              private registerService: RegisterService,
+              private toast: ToastrService,
+              private router: Router) { }
 
   ngOnInit(): void {
 
@@ -42,6 +47,18 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
+
+    if (this.form.valid) {
+
+      this.register = Object.assign({}, this.form.value);
+      this.registerService.registrarUsuario(this.register).subscribe(
+        () => {
+          this.toast.success('Usuário Registrado com Sucesso!', 'Lost & Found');
+          this.router.navigate(['login']);
+        }, error => {
+          this.toast.error('Não Foi Possível Registrar o Usuário!', 'Lost & Found');
+        });
+    }
 
   }
 

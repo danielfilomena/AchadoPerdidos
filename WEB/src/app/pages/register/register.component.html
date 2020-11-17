@@ -198,7 +198,13 @@
 
         <br>
 
-        <div class="main-login-button">
+        <div class="main-login-button" *ngIf="form.valid">
+          <button type="submit" >
+            Cadastrar
+          </button>
+        </div>
+
+        <div class="main-button-disable" *ngIf="form.invalid">
           <button type="submit" [disabled]="form.invalid" >
             Cadastrar
           </button>

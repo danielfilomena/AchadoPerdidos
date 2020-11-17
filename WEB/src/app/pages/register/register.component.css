@@ -1,3 +1,4 @@
+
 .main-register {
   margin: auto;
   width: 355px;
@@ -96,4 +97,22 @@ td {
   color: black !important;
   font-weight: bold;
 
+}
+
+.main-button-disable {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.main-button-disable button {
+  border-radius: 25.5px;
+  background-color: moccasin;
+  color: white-color;
+  border: 1px solid #ffa300;
+  height: 50px;
+  width: 90%;
+  font-size: 18px;
+  color: #ffa300 !important;
+  font-weight: bold;
 }

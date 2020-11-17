@@ -1,3 +1,0 @@
-USE MASTER;
-
-CREATE DATABASE LostFound;
