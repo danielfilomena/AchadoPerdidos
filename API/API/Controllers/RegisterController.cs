@@ -20,13 +20,7 @@ namespace API.Controllers
         {
             _context = context;
         }
-
-        [HttpGet]
-        public async Task<ActionResult> GetPessoa()
-        {
-
-        }
-
+        
         //// GET: api/Register
         //[HttpGet]
         //public async Task<ActionResult<IEnumerable<Pessoa>>> GetPessoas()
@@ -98,7 +92,7 @@ namespace API.Controllers
                 sucesso = true;
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return BadRequest(sucesso);
             }            

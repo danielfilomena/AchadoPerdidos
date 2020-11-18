@@ -4,14 +4,16 @@ using API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace API.Migrations
 {
     [DbContext(typeof(LostFoundContext))]
-    partial class LostFoundContextModelSnapshot : ModelSnapshot
+    [Migration("20201118033827_CriarTabelaItem")]
+    partial class CriarTabelaItem
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -112,24 +114,6 @@ namespace API.Migrations
                     b.HasKey("iteCod");
 
                     b.ToTable("tbIte");
-                });
-
-            modelBuilder.Entity("API.Models.ItemFoto", b =>
-                {
-                    b.Property<int>("itePicCod")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("itePicPath")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("itemCod")
-                        .HasColumnType("int");
-
-                    b.HasKey("itePicCod");
-
-                    b.ToTable("tbItePic");
                 });
 
             modelBuilder.Entity("API.Models.Pessoa", b =>

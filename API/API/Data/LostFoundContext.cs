@@ -13,6 +13,11 @@ namespace API.Data
         }
 
         public DbSet<Pessoa> Pessoas { get; set; }
+        public DbSet<Categoria> Categoria { get; set; }
+        public DbSet<TipoContato> TipoContato { get; set; }
+        public DbSet<Contato> Contato { get; set; }
+        public DbSet<Item> Item { get; set; }
+        public DbSet<ItemFoto> ItemFoto { get; set; }
 
     }
 }

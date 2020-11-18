@@ -4,14 +4,16 @@ using API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace API.Migrations
 {
     [DbContext(typeof(LostFoundContext))]
-    partial class LostFoundContextModelSnapshot : ModelSnapshot
+    [Migration("20201118032736_CriarTabelaContato")]
+    partial class CriarTabelaContato
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -70,66 +72,6 @@ namespace API.Migrations
                     b.HasIndex("PessoapesCod");
 
                     b.ToTable("tbCtt");
-                });
-
-            modelBuilder.Entity("API.Models.Item", b =>
-                {
-                    b.Property<int>("iteCod")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<int>("catCod")
-                        .HasColumnType("int");
-
-                    b.Property<string>("iteDsc")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("iteDtaAlt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("iteDtaCad")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("iteDtaEnt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("iteEntregue")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("iteExcluido")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("iteInativo")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("iteLoc")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("pesCod")
-                        .HasColumnType("int");
-
-                    b.HasKey("iteCod");
-
-                    b.ToTable("tbIte");
-                });
-
-            modelBuilder.Entity("API.Models.ItemFoto", b =>
-                {
-                    b.Property<int>("itePicCod")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("itePicPath")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("itemCod")
-                        .HasColumnType("int");
-
-                    b.HasKey("itePicCod");
-
-                    b.ToTable("tbItePic");
                 });
 
             modelBuilder.Entity("API.Models.Pessoa", b =>
