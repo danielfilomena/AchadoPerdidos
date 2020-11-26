@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using API.Data;
 using API.Models;
 
@@ -20,19 +16,19 @@ namespace API.Controllers
         {
             _context = context;
         }
-        
+
         //// GET: api/Register
         //[HttpGet]
-        //public async Task<ActionResult<IEnumerable<Pessoa>>> GetPessoas()
+        //public async Task<ActionResult<IEnumerable<Pessoa>>> GetPessoa()
         //{
-        //    return await _context.Pessoas.ToListAsync();
+        //    return await _context.Pessoa.ToListAsync();
         //}
 
         //// GET: api/Register/5
         //[HttpGet("{id}")]
         //public async Task<ActionResult<Pessoa>> GetPessoa(int id)
         //{
-        //    var pessoa = await _context.Pessoas.FindAsync(id);
+        //    var pessoa = await _context.Pessoa.FindAsync(id);
 
         //    if (pessoa == null)
         //    {
@@ -86,17 +82,19 @@ namespace API.Controllers
             {
 
                 pessoa.pesDtaCad = DateTime.Now;
-                _context.Pessoas.Add(pessoa);
+                _context.Pessoa.Add(pessoa);
                 await _context.SaveChangesAsync();
 
                 sucesso = true;
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return BadRequest(sucesso);
-            }            
 
+                return BadRequest(sucesso);
+                            
+            }
+           
             return Ok(sucesso);
         }
 
@@ -104,13 +102,13 @@ namespace API.Controllers
         //[HttpDelete("{id}")]
         //public async Task<ActionResult<Pessoa>> DeletePessoa(int id)
         //{
-        //    var pessoa = await _context.Pessoas.FindAsync(id);
+        //    var pessoa = await _context.Pessoa.FindAsync(id);
         //    if (pessoa == null)
         //    {
         //        return NotFound();
         //    }
 
-        //    _context.Pessoas.Remove(pessoa);
+        //    _context.Pessoa.Remove(pessoa);
         //    await _context.SaveChangesAsync();
 
         //    return pessoa;
@@ -118,7 +116,7 @@ namespace API.Controllers
 
         //private bool PessoaExists(int id)
         //{
-        //    return _context.Pessoas.Any(e => e.pesCod == id);
+        //    return _context.Pessoa.Any(e => e.pesCod == id);
         //}
 
     }

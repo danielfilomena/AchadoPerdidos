@@ -94,14 +94,14 @@
                   type="text"
                   matInput
                   placeholder="Celular"
-                  name="telefone"
-                  id="telefone"
-                  formControlName="telefone"
+                  name="pesTel"
+                  id="pesTel"
+                  formControlName="pesTel"
                   autocomplete="off"
                   style="width: 200px;"
                 />
 
-                <mat-error *ngIf="form.get('telefone').invalid && form.get('telefone').touched">
+                <mat-error *ngIf="form.get('pesTel').invalid && form.get('pesTel').touched">
                   O Campo é Obrigatório
                 </mat-error>
 
@@ -118,18 +118,18 @@
                   type="email"
                   matInput
                   placeholder="Email"
-                  name="email"
-                  id="email"
-                  formControlName="email"
+                  name="pesEmail"
+                  id="pesEmail"
+                  formControlName="pesEmail"
                   autocomplete="off"
                   style="width: 300px;"
                 />
 
-                <mat-error *ngIf="form.get('email').invalid && form.get('email').touched && form.get('email').value == '' ">
+                <mat-error *ngIf="form.get('pesEmail').invalid && form.get('pesEmail').touched && form.get('pesEmail').value == '' ">
                   O Campo é Obrigatório
                 </mat-error>
 
-                <mat-error *ngIf="form.get('email').invalid && form.get('email').value !== '' ">
+                <mat-error *ngIf="form.get('pesEmail').invalid && form.get('pesEmail').value !== '' ">
                   O e-mail informado é Invalido
                 </mat-error>
 

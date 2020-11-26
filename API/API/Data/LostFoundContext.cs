@@ -1,23 +1,20 @@
 ﻿using API.Models;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace API.Data
 {
-
     public class LostFoundContext : DbContext
     {
-
         public LostFoundContext(DbContextOptions<LostFoundContext> options) : base(options)
         {
 
         }
 
-        public DbSet<Pessoa> Pessoas { get; set; }
-        public DbSet<Categoria> Categoria { get; set; }
-        public DbSet<TipoContato> TipoContato { get; set; }
-        public DbSet<Contato> Contato { get; set; }
-        public DbSet<Item> Item { get; set; }
-        public DbSet<ItemFoto> ItemFoto { get; set; }
+        public DbSet<Pessoa> Pessoa { get; set; }
 
     }
 }

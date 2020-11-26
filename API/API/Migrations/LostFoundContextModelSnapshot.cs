@@ -19,119 +19,6 @@ namespace API.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.0");
 
-            modelBuilder.Entity("API.Models.Categoria", b =>
-                {
-                    b.Property<int>("catCod")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("catDsc")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("catDtaAlt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("catDtaCad")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("catExcluido")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("catInativo")
-                        .HasColumnType("bit");
-
-                    b.HasKey("catCod");
-
-                    b.ToTable("tbCat");
-                });
-
-            modelBuilder.Entity("API.Models.Contato", b =>
-                {
-                    b.Property<int>("cttCod")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<int?>("PessoapesCod")
-                        .HasColumnType("int");
-
-                    b.Property<string>("cttDsc")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("cttTipCod")
-                        .HasColumnType("int");
-
-                    b.Property<int>("pesCod")
-                        .HasColumnType("int");
-
-                    b.HasKey("cttCod");
-
-                    b.HasIndex("PessoapesCod");
-
-                    b.ToTable("tbCtt");
-                });
-
-            modelBuilder.Entity("API.Models.Item", b =>
-                {
-                    b.Property<int>("iteCod")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<int>("catCod")
-                        .HasColumnType("int");
-
-                    b.Property<string>("iteDsc")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("iteDtaAlt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("iteDtaCad")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("iteDtaEnt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("iteEntregue")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("iteExcluido")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("iteInativo")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("iteLoc")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("pesCod")
-                        .HasColumnType("int");
-
-                    b.HasKey("iteCod");
-
-                    b.ToTable("tbIte");
-                });
-
-            modelBuilder.Entity("API.Models.ItemFoto", b =>
-                {
-                    b.Property<int>("itePicCod")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("itePicPath")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("itemCod")
-                        .HasColumnType("int");
-
-                    b.HasKey("itePicCod");
-
-                    b.ToTable("tbItePic");
-                });
-
             modelBuilder.Entity("API.Models.Pessoa", b =>
                 {
                     b.Property<int>("pesCod")
@@ -148,6 +35,9 @@ namespace API.Migrations
                     b.Property<DateTime?>("pesDtaCad")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("pesEmail")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("pesExcluido")
                         .HasColumnType("bit");
 
@@ -160,39 +50,15 @@ namespace API.Migrations
                     b.Property<string>("pesSenha")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("pesTel")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("pesUltNome")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("pesCod");
 
                     b.ToTable("tbPes");
-                });
-
-            modelBuilder.Entity("API.Models.TipoContato", b =>
-                {
-                    b.Property<int>("cttTipCod")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("cttTipDsc")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("cttTipCod");
-
-                    b.ToTable("tbCttTip");
-                });
-
-            modelBuilder.Entity("API.Models.Contato", b =>
-                {
-                    b.HasOne("API.Models.Pessoa", null)
-                        .WithMany("Contato")
-                        .HasForeignKey("PessoapesCod");
-                });
-
-            modelBuilder.Entity("API.Models.Pessoa", b =>
-                {
-                    b.Navigation("Contato");
                 });
 #pragma warning restore 612, 618
         }

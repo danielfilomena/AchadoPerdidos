@@ -1,5 +1,7 @@
+import { LoginService } from './../../services/login.service';
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { LoginModel } from './models/login-model';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +14,10 @@ export class LoginComponent implements OnInit {
   user: FormControl;
   pass: FormControl;
 
-  constructor(private elementRef: ElementRef) {
+  login: LoginModel;
+
+  constructor(private elementRef: ElementRef,
+              private loginService: LoginService) {
 
     this.user = new FormControl('', Validators.required);
     this.pass = new FormControl('', Validators.required);
@@ -26,6 +31,12 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#175c7d';
+  }
+
+
+  onSubmit(): void{
+
+
   }
 
 }

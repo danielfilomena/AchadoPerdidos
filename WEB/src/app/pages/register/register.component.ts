@@ -38,8 +38,8 @@ export class RegisterComponent implements OnInit {
       pesCpf: ['', Validators.required],
       pesSenha: ['', Validators.required],
       pesConfSenha: ['', Validators.required],
-      telefone: ['', Validators.required],
-      email: ['', Validators.email]
+      pesTel: ['', Validators.required],
+      pesEmail: ['', Validators.email]
     }, {
       validator: PasswordValidator.MatchPassword
     });

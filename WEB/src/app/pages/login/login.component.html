@@ -9,7 +9,7 @@
 
 
 <div class="main-login">
-  <form [formGroup]="form" >
+  <form [formGroup]="form" (ngSubmit)="onSubmit()"  >
 
     <div class="main-login-input">
 

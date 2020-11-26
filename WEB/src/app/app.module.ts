@@ -17,6 +17,7 @@ import {MatCardModule} from '@angular/material/card';
 
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { ToastrModule } from 'ngx-toastr';
+import { ItemComponent } from './pages/item/item.component';
 
 
 
@@ -27,7 +28,8 @@ import { ToastrModule } from 'ngx-toastr';
     MainComponent,
     LoginComponent,
     RegisterComponent,
-    NavbarComponent
+    NavbarComponent,
+    ItemComponent
   ],
   imports: [
     BrowserModule,
