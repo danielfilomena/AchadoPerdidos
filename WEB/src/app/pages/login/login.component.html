@@ -1,0 +1,57 @@
+<div>
+  <img src="assets/img/logo.png" style="width:20%;height:20%;margin-top:100px;margin-left:40%;"/>
+
+</div>
+
+<div style="margin-left:45%;font-size:24px;color: rgba(255, 255, 255, 0.7);">
+  <span>Achados e Perdidos</span>
+</div>
+
+
+<div class="main-login">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()"  >
+
+    <div class="main-login-input">
+
+      <img src="assets/img/login.png" alt="Login" />
+
+      <input
+        required
+        autofocus
+        type="text"
+        placeholder="Login"
+        name="user"
+        id="user"
+        formControlName="user"
+        [ngClass]="{ 'border-error': user.invalid && user.touched }"
+        autocomplete="off" style="width: 350PX;" />
+        <span *ngIf="user.invalid && user.touched" class="login-error">Campo Obrigatório</span>
+
+    </div>
+
+    <div class="main-login-input">
+      <img src="assets/img/pass.png" alt="Senha" />
+      <input
+          required
+          type="password"
+          placeholder="Senha"
+          name="pass"
+          id="pass"
+          formControlName="pass"
+          [ngClass]="{ 'border-error': pass.invalid && pass.touched }"
+          style="width: 350px;" />
+      <span *ngIf="pass.invalid && pass.touched" class="login-error">Campo obrigatório</span>
+  </div>
+
+  <div class="main-login-button">
+    <button type="submit">Entrar</button>
+  </div>
+
+  <br>
+
+  <div class="main-login">
+    <a href="register" style="color: rgba(255, 255, 255, 0.7);">Cadastrar-se</a>
+  </div>
+
+  </form>
+</div>
